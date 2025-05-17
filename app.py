@@ -1,13 +1,15 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 import re
+import os 
 import spacy
 import nltk
 from nltk.corpus import stopwords
 from textblob import TextBlob
 
 # Download stopwords (first-time use only)
-nltk.download('stopwords')
+#nltk.download('stopwords')
+nltk.data.path.append(os.path.join(os.path.dirname(__file__), 'nltk_data'))
 
 # Load spaCy English model
 nlp = spacy.load('en_core_web_sm')
